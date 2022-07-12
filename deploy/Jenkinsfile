@@ -26,7 +26,6 @@ pipeline {
     }
     stage('============ Run test code ============') {
         when { expression { return params.RUN_TEST } }
-        agent { label 'build' }
         steps {
             sh('docker run --rm test:1 /root/.local/bin/pytest -v')
         }
