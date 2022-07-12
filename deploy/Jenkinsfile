@@ -26,8 +26,9 @@ pipeline {
     }
     stage('============ Run test code ============') {
         when { expression { return params.RUN_TEST } }
+        agent { label 'build' }
         steps {
-            echo "Run Test success!"
+            sh('docker run --rm test:1 /root/.local/bin/pytest -v')
         }
     }
     stage('============ Push Docker Image ============') {
