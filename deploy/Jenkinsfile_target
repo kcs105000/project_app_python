@@ -42,7 +42,7 @@ pipeline {
     stage('============ Run test code ============') {
         when { expression { return params.RUN_TEST } }
         steps {
-            echo " Run test code!!"
+            echo " Run test code!"
         }
     }
     stage('============ Push Docker Image ============') {
